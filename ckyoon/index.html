@@ -48,8 +48,6 @@
     position: relative;
     overflow: hidden;
   }
-
-  /* 브랜드 로고타입 (우측 상단) */
   .brand-logo {
     position: absolute;
     top: 20px;
@@ -75,11 +73,7 @@
     margin: 4px 0;
     opacity: 0.5;
   }
-
-  /* 인물 정보 텍스트 */
-  .card-info {
-    margin-top: 60px; /* 로고 아래 여백 */
-  }
+  .card-info { margin-top: 60px; }
   .card-info .name-row {
     font-family: 'Pretendard', sans-serif;
     font-size: 20px;
@@ -102,16 +96,6 @@
     color: #4a4a4a;
     line-height: 1.75;
     letter-spacing: -0.01em;
-  }
-  .card-info .detail-row .label {
-    color: var(--ink-soft);
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-  }
-  .card-info .divider-text {
-    color: var(--line);
-    margin: 0 5px;
   }
 
   /* ── 액션 버튼 그리드 ── */
@@ -187,6 +171,114 @@
     cursor:pointer; font-family:inherit;
   }
 
+  /* ── 시승 예약 ── */
+  .td-card {
+    background: var(--paper-soft);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 16px;
+  }
+  .td-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--ink-soft);
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+    margin-top: 16px;
+  }
+  .td-label:first-child { margin-top: 0; }
+  .td-cars {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7px;
+  }
+  .td-car-btn {
+    padding: 9px 6px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    font-family: inherit;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--ink);
+    cursor: pointer;
+    text-align: center;
+    -webkit-tap-highlight-color: transparent;
+    transition: background .12s, color .12s, border-color .12s;
+  }
+  .td-car-btn.active {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+    font-weight: 600;
+  }
+  .td-dates {
+    display: flex;
+    gap: 7px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+  }
+  .td-dates::-webkit-scrollbar { display: none; }
+  .td-date-btn {
+    flex-shrink: 0;
+    padding: 8px 10px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    font-family: inherit;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--ink);
+    cursor: pointer;
+    text-align: center;
+    min-width: 50px;
+    line-height: 1.3;
+    -webkit-tap-highlight-color: transparent;
+    transition: background .12s, color .12s, border-color .12s;
+  }
+  .td-date-btn .dd { font-size: 10px; display: block; margin-bottom: 2px; }
+  .td-date-btn.sat .dd { color: #3a6ec9; }
+  .td-date-btn.sun .dd { color: #c93a3a; }
+  .td-date-btn.active { background: var(--ink); color: var(--paper); border-color: var(--ink); font-weight: 600; }
+  .td-date-btn.active .dd { color: rgba(255,255,255,0.65); }
+  .td-times {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 7px;
+  }
+  .td-time-btn {
+    padding: 9px 4px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    font-family: inherit;
+    font-size: 11.5px;
+    font-weight: 500;
+    color: var(--ink);
+    cursor: pointer;
+    text-align: center;
+    -webkit-tap-highlight-color: transparent;
+    transition: background .12s, color .12s, border-color .12s;
+  }
+  .td-time-btn.active { background: var(--ink); color: var(--paper); border-color: var(--ink); font-weight: 600; }
+  .td-time-btn:disabled { opacity: 0.28; cursor: not-allowed; }
+  .td-reserve-btn {
+    width: 100%;
+    margin-top: 16px;
+    padding: 14px;
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    border-radius: var(--radius);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    -webkit-tap-highlight-color: transparent;
+  }
+
   footer{
     margin-top:44px;
     padding-top:20px;
@@ -196,7 +288,6 @@
     color:var(--ink-soft);
     letter-spacing:0.05em;
   }
-
   .toast{
     position:fixed; left:50%; bottom:28px; transform:translateX(-50%) translateY(20px);
     background:var(--ink); color:var(--paper);
@@ -218,7 +309,7 @@ const PERSON = {
   rank: "팀장",
   branchKr: "대구 전시장",
   companyKr: "인타이어 모터스",
-  address: "경상북도 대구 서구 와룡로 314 (41845)",
+  address: "대구광역시 서구 와룡로 314 (41845)",
   addressShort: "대구 서구 와룡로 314",
   phoneMain: "053-742-2500",
   phoneMobile: "010-6236-7744",
@@ -231,8 +322,6 @@ const PERSON = {
 
   <!-- 상단 명함 카드 블럭 -->
   <div class="card-block">
-
-    <!-- 브랜드 로고타입 (CSS 재현) -->
     <div class="brand-logo">
       <span class="brand-name">RANGE ROVER</span>
       <div class="brand-divider"></div>
@@ -240,8 +329,6 @@ const PERSON = {
       <div class="brand-divider"></div>
       <span class="brand-name">DISCOVERY</span>
     </div>
-
-    <!-- 인물 정보 -->
     <div class="card-info">
       <div class="name-row">
         윤철국 <span class="name-en">Yoon, Chulkuk</span>
@@ -262,8 +349,8 @@ const PERSON = {
       <span class="icon">📞</span><span id="btnCallLabel"></span>
     </a>
     <a href="ckyoon.vcf" id="btnSave"><span class="icon">💾</span>연락처 저장</a>
-    <a href="#" id="btnSms"><span class="icon">💬</span>문자 복내기</a>
-    <a href="#" id="btnEmail"><span class="icon">✉️</span>이메일</a>
+    <a href="#" id="btnSms"><span class="icon">💬</span>문자 보내기</a>
+    <a href="#" id="btnShowroom"><span class="icon">🏢</span>전시장 전화</a>
     <button id="btnShare"><span class="icon">🔗</span>명함 공유</button>
   </div>
 
@@ -281,13 +368,30 @@ const PERSON = {
     </div>
   </div>
 
+  <!-- 시승 예약 -->
+  <div class="section">
+    <h2>TEST DRIVE RESERVATION</h2>
+    <div class="td-card">
+      <div class="td-label">차종 선택</div>
+      <div class="td-cars" id="tdCars"></div>
+
+      <div class="td-label">날짜 선택</div>
+      <div class="td-dates" id="tdDates"></div>
+
+      <div class="td-label">시간 선택</div>
+      <div class="td-times" id="tdTimes"></div>
+
+      <button class="td-reserve-btn" id="tdReserveBtn">예약하기</button>
+    </div>
+  </div>
+
   <footer id="footerCompany"></footer>
 </div>
 
 <div class="toast" id="toast"></div>
 
 <script>
-// 인물 정보 텍스트 렌더링
+// 인물 정보 렌더링
 document.getElementById('titleLine').textContent =
   `${PERSON.titleKr} | ${PERSON.titleEn} (${PERSON.rank})`;
 document.getElementById('branchLine').textContent =
@@ -301,11 +405,11 @@ document.getElementById('addrFull').textContent = PERSON.address;
 document.getElementById('footerCompany').textContent =
   `${PERSON.companyKr.toUpperCase()} · ${PERSON.branchKr.toUpperCase()}`;
 
-// 전화 / 문자 / 이메일 버튼
+// 버튼 링크
 document.getElementById('btnCall').href = `tel:${PERSON.phoneMobile}`;
 document.getElementById('btnCallLabel').textContent = `${PERSON.phoneMobile} 바로 통화`;
 document.getElementById('btnSms').href = `sms:${PERSON.phoneMobile}`;
-document.getElementById('btnEmail').href = `mailto:${PERSON.email}`;
+document.getElementById('btnShowroom').href = `tel:${PERSON.phoneMain}`;
 
 // 명함 공유
 document.getElementById('btnShare').addEventListener('click', async () => {
@@ -334,9 +438,118 @@ document.getElementById('btnCopyAddr').addEventListener('click', async () => {
   showToast('주소가 복사되었습니다');
 });
 
-// 토스트 알림
-let toastTimer;
-function showToast(msg){
+// ── 시승 예약 ──────────────────────────────────────
+
+const TD_CARS = [
+  '레인지로버', '레인지로버 스포츠',
+  '레인지로버 벨라', '레인지로버 이보크',
+  '디펜더', '디펜더 옥타',
+  '디스커버리', '디스커버리 스포츠'
+];
+const DAYS_KR = ['일','월','화','수','목','금','토'];
+
+let tdCar = null, tdDate = null, tdHour = null;
+
+// 차종 버튼 생성
+const carsEl = document.getElementById('tdCars');
+TD_CARS.forEach(car => {
+  const btn = document.createElement('button');
+  btn.className = 'td-car-btn';
+  btn.textContent = car;
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.td-car-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    tdCar = car;
+  });
+  carsEl.appendChild(btn);
+});
+
+// 날짜 버튼 생성 (오늘 ~ +6일, 총 7일)
+const nowRef = new Date();
+const datesEl = document.getElementById('tdDates');
+
+for (let i = 0; i < 7; i++) {
+  const d = new Date(nowRef);
+  d.setDate(nowRef.getDate() + i);
+  const dow = d.getDay();
+
+  const btn = document.createElement('button');
+  btn.className = 'td-date-btn';
+  if (dow === 6) btn.classList.add('sat');
+  if (dow === 0) btn.classList.add('sun');
+
+  btn.innerHTML = `<span class="dd">${DAYS_KR[dow]}</span>${d.getMonth()+1}/${d.getDate()}`;
+
+  const snap = new Date(d);
+  snap.setHours(0, 0, 0, 0);
+
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.td-date-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    tdDate = snap;
+    tdHour = null;
+    buildTimes();
+  });
+  datesEl.appendChild(btn);
+}
+
+// 시간 버튼 생성 (오전 10시 ~ 오후 5시, 1시간 단위)
+function buildTimes() {
+  const timesEl = document.getElementById('tdTimes');
+  timesEl.innerHTML = '';
+  const now2 = new Date();
+
+  for (let h = 10; h <= 17; h++) {
+    const btn = document.createElement('button');
+    btn.className = 'td-time-btn';
+
+    if (tdDate) {
+      const slot = new Date(tdDate);
+      slot.setHours(h, 0, 0, 0);
+      if (slot <= now2) btn.disabled = true;
+    }
+
+    btn.textContent = h < 12
+      ? `오전 ${h}시`
+      : h === 12 ? `오후 12시` : `오후 ${h-12}시`;
+
+    if (!btn.disabled) {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.td-time-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        tdHour = h;
+      });
+    }
+    timesEl.appendChild(btn);
+  }
+}
+buildTimes();
+
+// 예약하기 버튼 — SMS 앱 열기
+document.getElementById('tdReserveBtn').addEventListener('click', () => {
+  if (!tdCar)        { showToast('차종을 선택해주세요'); return; }
+  if (!tdDate)       { showToast('날짜를 선택해주세요'); return; }
+  if (tdHour === null) { showToast('시간을 선택해주세요'); return; }
+
+  const m  = tdDate.getMonth() + 1;
+  const dd = tdDate.getDate();
+  const dw = DAYS_KR[tdDate.getDay()];
+  const tl = tdHour < 12
+    ? `오전 ${tdHour}시`
+    : tdHour === 12 ? `오후 12시` : `오후 ${tdHour-12}시`;
+
+  const body =
+    `[시승 예약]\n` +
+    `차종: ${tdCar}\n` +
+    `일시: ${m}l ${dd}l (${dw}) ${tl}\n` +
+    `전시장: 인む이어 모터스 대구 전시장\n` +
+    `닫당: ${PERSON.nameKr} ${PERSON.rank} (${PERSON.phoneMobile})`;
+
+  location.href = `sms:${PERSON.phoneMobile}?body=${encodeURIComponent(body)}`;
+});
+
+// 통화 알림
+function showToast(msg) {
   const t = document.getElementById('toast');
   t.textContent = msg;
   t.classList.add('show');
