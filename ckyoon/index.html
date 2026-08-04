@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="theme-color" content="#1a1a1a">
-<title>ì¤ì² êµ­ íì¥ | ì¸íì´ì´ ëª¨í°ì¤ ëêµ¬ ì ìì¥</title>
-<meta property="og:title" content="ì¤ì² êµ­ íì¥ | ì¸íì´ì´ ëª¨í°ì¤ ëêµ¬ ì ìì¥">
-<meta property="og:description" content="Range Rover Â· Defender Â· Discovery | 010-6236-7744 | ckyoon@entire.co.kr">
+<title>윤철국 팀장 | 인타이어 모터스 대구 전시장</title>
+<meta property="og:title" content="윤철국 팀장 | 인타이어 모터스 대구 전시장">
+<meta property="og:description" content="Range Rover · Defender · Discovery | 010-6236-7744 | ckyoon@entire.co.kr">
 <meta property="og:type" content="profile">
 
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
@@ -39,7 +39,7 @@
     padding:0 24px 48px;
   }
 
-  /* ââ ìë¨ ëªí¨ ì¹´ë ë¸ë­ ââ */
+  /* ── 상단 명함 카드 블럭 ── */
   .card-block {
     margin: 24px 0 0;
     background: #f0eeeb;
@@ -49,7 +49,7 @@
     overflow: hidden;
   }
 
-  /* ë¸ëë ë¡ê³ íì (ì°ì¸¡ ìë¨) */
+  /* 브랜드 로고타입 (우측 상단) */
   .brand-logo {
     position: absolute;
     top: 20px;
@@ -76,9 +76,9 @@
     opacity: 0.5;
   }
 
-  /* ì¸ë¬¼ ì ë³´ íì¤í¸ */
+  /* 인물 정보 텍스트 */
   .card-info {
-    margin-top: 60px; /* ë¡ê³  ìë ì¬ë°± */
+    margin-top: 60px; /* 로고 아래 여백 */
   }
   .card-info .name-row {
     font-family: 'Pretendard', sans-serif;
@@ -114,7 +114,7 @@
     margin: 0 5px;
   }
 
-  /* ââ ì¡ì ë²í¼ ê·¸ë¦¬ë ââ */
+  /* ── 액션 버튼 그리드 ── */
   .actions{
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -151,7 +151,7 @@
   }
   .actions .icon{ font-size:18px; }
 
-  /* ââ ì¹ì ê³µíµ ââ */
+  /* ── 섹션 공통 ── */
   .section{ margin-top:36px; }
   .section h2{
     font-size:11px;
@@ -161,7 +161,7 @@
     margin-bottom:12px;
   }
 
-  /* ââ ìì¹ ââ */
+  /* ── 위치 ── */
   .address-card{
     background:var(--paper-soft);
     border:1px solid var(--line);
@@ -211,15 +211,15 @@
 
 <script>
 const PERSON = {
-  nameKr: "ì¤ì² êµ­",
+  nameKr: "윤철국",
   nameEn: "Yoon, Chulkuk",
-  titleKr: "ììì¬ì",
+  titleKr: "영업사원",
   titleEn: "Sales Executive",
-  rank: "íì¥",
-  branchKr: "ëêµ¬ ì ìì¥",
-  companyKr: "ì¸íì´ì´ ëª¨í°ì¤",
-  address: "ê²½ìë¶ë ëêµ¬ ìêµ¬ ìë£¡ë¡ 314 (41845)",
-  addressShort: "ëêµ¬ ìêµ¬ ìë£¡ë¡ 314",
+  rank: "팀장",
+  branchKr: "대구 전시장",
+  companyKr: "인타이어 모터스",
+  address: "경상북도 대구 서구 와룡로 314 (41845)",
+  addressShort: "대구 서구 와룡로 314",
   phoneMain: "053-742-2500",
   phoneMobile: "010-6236-7744",
   email: "ckyoon@entire.co.kr",
@@ -229,10 +229,10 @@ const PERSON = {
 
 <div class="wrap">
 
-  <!-- ìë¨ ëªí¨ ì¹´ë ë¸ë­ -->
+  <!-- 상단 명함 카드 블럭 -->
   <div class="card-block">
 
-    <!-- ë¸ëë ë¡ê³ íì (CSS ì¬í) -->
+    <!-- 브랜드 로고타입 (CSS 재현) -->
     <div class="brand-logo">
       <span class="brand-name">RANGE ROVER</span>
       <div class="brand-divider"></div>
@@ -241,10 +241,10 @@ const PERSON = {
       <span class="brand-name">DISCOVERY</span>
     </div>
 
-    <!-- ì¸ë¬¼ ì ë³´ -->
+    <!-- 인물 정보 -->
     <div class="card-info">
       <div class="name-row">
-        ì¤ì² êµ­ <span class="name-en">Yoon, Chulkuk</span>
+        윤철국 <span class="name-en">Yoon, Chulkuk</span>
       </div>
       <div class="detail-row">
         <span id="titleLine"></span><br>
@@ -256,28 +256,28 @@ const PERSON = {
     </div>
   </div>
 
-  <!-- ì¡ì ë²í¼ -->
+  <!-- 액션 버튼 -->
   <div class="actions">
     <a href="#" class="primary" id="btnCall">
-      <span class="icon">ð</span><span id="btnCallLabel"></span>
+      <span class="icon">📞</span><span id="btnCallLabel"></span>
     </a>
-    <a href="ckyoon.vcf" id="btnSave"><span class="icon">ð¾</span>ì°ë½ì² ì ì¥</a>
-    <a href="#" id="btnSms"><span class="icon">ð¬</span>ë¬¸ì ë³´ë´ê¸°</a>
-    <a href="#" id="btnEmail"><span class="icon">âï¸</span>ì´ë©ì¼</a>
-    <button id="btnShare"><span class="icon">ð</span>ëªí¨ ê³µì </button>
+    <a href="ckyoon.vcf" id="btnSave"><span class="icon">💾</span>연락처 저장</a>
+    <a href="#" id="btnSms"><span class="icon">💬</span>문자 복내기</a>
+    <a href="#" id="btnEmail"><span class="icon">✉️</span>이메일</a>
+    <button id="btnShare"><span class="icon">🔗</span>명함 공유</button>
   </div>
 
-  <!-- ìì¹ -->
+  <!-- 위치 -->
   <div class="section">
     <h2>LOCATION</h2>
     <div class="address-card">
       <p id="addrFull"></p>
       <div class="map-row">
-        <a id="mapTmap" target="_blank" rel="noopener">T í°ë§µ</a>
-        <a id="mapKakao" target="_blank" rel="noopener">K ì¹´ì¹´ì¤ë§µ</a>
-        <a id="mapNaver" target="_blank" rel="noopener">N ë¤ì´ë²ë§µ</a>
+        <a id="mapTmap" target="_blank" rel="noopener">T 티맵</a>
+        <a id="mapKakao" target="_blank" rel="noopener">K 카카오맵</a>
+        <a id="mapNaver" target="_blank" rel="noopener">N 네이버맵</a>
       </div>
-      <button class="copy-btn" id="btnCopyAddr">ì£¼ì ë³µì¬</button>
+      <button class="copy-btn" id="btnCopyAddr">주소 복사</button>
     </div>
   </div>
 
@@ -287,7 +287,7 @@ const PERSON = {
 <div class="toast" id="toast"></div>
 
 <script>
-// ì¸ë¬¼ ì ë³´ íì¤í¸ ë ëë§
+// 인물 정보 텍스트 렌더링
 document.getElementById('titleLine').textContent =
   `${PERSON.titleKr} | ${PERSON.titleEn} (${PERSON.rank})`;
 document.getElementById('branchLine').textContent =
@@ -299,15 +299,15 @@ document.getElementById('emailLine').textContent = PERSON.email;
 
 document.getElementById('addrFull').textContent = PERSON.address;
 document.getElementById('footerCompany').textContent =
-  `${PERSON.companyKr.toUpperCase()} Â· ${PERSON.branchKr.toUpperCase()}`;
+  `${PERSON.companyKr.toUpperCase()} · ${PERSON.branchKr.toUpperCase()}`;
 
-// ì í / ë¬¸ì / ì´ë©ì¼ ë²í¼
+// 전화 / 문자 / 이메일 버튼
 document.getElementById('btnCall').href = `tel:${PERSON.phoneMobile}`;
-document.getElementById('btnCallLabel').textContent = `${PERSON.phoneMobile} ë°ë¡ íµí`;
+document.getElementById('btnCallLabel').textContent = `${PERSON.phoneMobile} 바로 통화`;
 document.getElementById('btnSms').href = `sms:${PERSON.phoneMobile}`;
 document.getElementById('btnEmail').href = `mailto:${PERSON.email}`;
 
-// ëªí¨ ê³µì 
+// 명함 공유
 document.getElementById('btnShare').addEventListener('click', async () => {
   const shareData = {
     title: `${PERSON.nameKr} | ${PERSON.companyKr}`,
@@ -318,23 +318,23 @@ document.getElementById('btnShare').addEventListener('click', async () => {
     try { await navigator.share(shareData); } catch (e) {}
   } else {
     await navigator.clipboard.writeText(location.href);
-    showToast('ë§í¬ê° ë³µì¬ëììµëë¤');
+    showToast('링크가 복사되었습니다');
   }
 });
 
-// ì§ë ë§í¬
+// 지도 링크
 const q = encodeURIComponent(PERSON.address);
 document.getElementById('mapTmap').href = `tmap://search?name=${q}`;
 document.getElementById('mapKakao').href = `https://m.map.kakao.com/scheme/search?q=${q}`;
 document.getElementById('mapNaver').href = `https://map.naver.com/p/search/${q}`;
 
-// ì£¼ì ë³µì¬
+// 주소 복사
 document.getElementById('btnCopyAddr').addEventListener('click', async () => {
   await navigator.clipboard.writeText(PERSON.address);
-  showToast('ì£¼ìê° ë³µì¬ëììµëë¤');
+  showToast('주소가 복사되었습니다');
 });
 
-// í ì¤í¸ ìë¦¼
+// 토스트 알림
 let toastTimer;
 function showToast(msg){
   const t = document.getElementById('toast');
