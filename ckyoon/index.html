@@ -263,6 +263,21 @@
   }
   .td-time-btn.active { background: var(--ink); color: var(--paper); border-color: var(--ink); font-weight: 600; }
   .td-time-btn:disabled { opacity: 0.28; cursor: not-allowed; }
+  .td-time-btn.call-btn { grid-column: 1 / -1; font-size: 12.5px; }
+  .td-name-input {
+    width: 100%;
+    margin-top: 2px;
+    padding: 10px 12px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    font-family: inherit;
+    font-size: 13.5px;
+    color: var(--ink);
+    outline: none;
+  }
+  .td-name-input:focus { border-color: var(--ink); }
+  .td-name-input::placeholder { color: var(--ink-soft); }
   .td-reserve-btn {
     width: 100%;
     margin-top: 16px;
@@ -278,6 +293,104 @@
     letter-spacing: 0.02em;
     -webkit-tap-highlight-color: transparent;
   }
+
+  /* ── ONE CARE ── */
+  .onecare-card {
+    background: var(--paper-soft);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .onecare-highlight {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 22px 16px;
+    text-align: center;
+  }
+  .oc-badge {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .oc-km {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+  .oc-desc {
+    font-size: 12px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.65;
+  }
+  .onecare-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 12px 16px 4px;
+    border-bottom: 1px solid var(--line);
+  }
+  .onecare-feature {
+    font-size: 12.5px;
+    color: var(--ink);
+    padding: 5px 0;
+    letter-spacing: -0.01em;
+  }
+  .oc-section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    color: var(--ink-soft);
+    padding: 12px 16px 8px;
+  }
+  .onecare-apps {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 0 16px 12px;
+    border-bottom: 1px solid var(--line);
+  }
+  .oc-app-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 11px 8px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--ink);
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .onecare-contacts {
+    padding: 0 16px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .oc-contact-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    text-decoration: none;
+    color: var(--ink);
+    -webkit-tap-highlight-color: transparent;
+  }
+  .oc-contact-icon { font-size: 20px; }
+  .oc-contact-info { display: flex; flex-direction: column; }
+  .oc-contact-label { font-size: 11px; color: var(--ink-soft); margin-bottom: 2px; }
+  .oc-contact-num { font-size: 15.5px; font-weight: 700; letter-spacing: 0.02em; }
 
   footer{
     margin-top:44px;
@@ -372,7 +485,7 @@ const PERSON = {
   <div class="section">
     <h2>TEST DRIVE RESERVATION</h2>
     <div class="td-card">
-      <div class="td-label">차종 선택</div>
+      <div class="td-label">시승 희망 차종</div>
       <div class="td-cars" id="tdCars"></div>
 
       <div class="td-label">날짜 선택</div>
@@ -381,7 +494,56 @@ const PERSON = {
       <div class="td-label">시간 선택</div>
       <div class="td-times" id="tdTimes"></div>
 
-      <button class="td-reserve-btn" id="tdReserveBtn">예약하기</button>
+      <div class="td-label">고객 성함</div>
+      <input type="text" class="td-name-input" id="tdName" placeholder="성함을 입력해주세요">
+
+      <button class="td-reserve-btn" id="tdReserveBtn">문자로 시승 예약하기</button>
+    </div>
+  </div>
+
+  <!-- ONE CARE -->
+  <div class="section">
+    <h2>ONE CARE</h2>
+    <div class="onecare-card">
+      <div class="onecare-highlight">
+        <div class="oc-badge">Land Rover One Care</div>
+        <div class="oc-km">5년 / 200,000km</div>
+        <p class="oc-desc">보증 · 서비스 플랜 · 픽업&amp;딜리버리<br>긴급출동 · 커넥티드 서비스</p>
+      </div>
+      <div class="onecare-features">
+        <div class="onecare-feature">✦ 5년 보증</div>
+        <div class="onecare-feature">✦ 5년 서비스 플랜</div>
+        <div class="onecare-feature">✦ 픽업 &amp; 딜리버리</div>
+        <div class="onecare-feature">✦ 24H 긴급 출동</div>
+        <div class="onecare-feature">✦ 자기부담금 지원</div>
+        <div class="onecare-feature">✦ 커넥티드 서비스</div>
+      </div>
+      <div class="oc-section-label">ONE CARE 앱 다운로드</div>
+      <div class="onecare-apps">
+        <a class="oc-app-btn" href="https://apps.apple.com/kr/app/land-rover-one-care/id1468234067" target="_blank" rel="noopener">
+          🍎&nbsp;App Store
+        </a>
+        <a class="oc-app-btn" href="https://play.google.com/store/apps/details?id=com.jlrkorea.owners" target="_blank" rel="noopener">
+          ▶&nbsp;Google Play
+        </a>
+      </div>
+      <div class="oc-section-label">연락처</div>
+      <div class="onecare-contacts">
+        <a class="oc-contact-btn" href="tel:080-337-9696">
+          <span class="oc-contact-icon">📞</span>
+          <div class="oc-contact-info">
+            <span class="oc-contact-label">긴급출동 (24시간)</span>
+            <span class="oc-contact-num">080-337-9696</span>
+          </div>
+        </a>
+        <a class="oc-contact-btn" href="tel:053-943-1000">
+          <span class="oc-contact-icon">🏢</span>
+          <div class="oc-contact-info">
+            <span class="oc-contact-label">대구 서비스센터</span>
+            <span class="oc-contact-num">053-943-1000</span>
+          </div>
+        </a>
+      </div>
     </div>
   </div>
 
@@ -448,27 +610,27 @@ const TD_CARS = [
 ];
 const DAYS_KR = ['일','월','화','수','목','금','토'];
 
-let tdCar = null, tdDate = null, tdHour = null;
+let tdCars = [], tdDate = null, tdHour = null;
 
-// 차종 버튼 생성
+// 차종 버튼 생성 (복수 선택)
 const carsEl = document.getElementById('tdCars');
 TD_CARS.forEach(car => {
   const btn = document.createElement('button');
   btn.className = 'td-car-btn';
   btn.textContent = car;
   btn.addEventListener('click', () => {
-    document.querySelectorAll('.td-car-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    tdCar = car;
+    btn.classList.toggle('active');
+    tdCars = Array.from(document.querySelectorAll('.td-car-btn.active')).map(b => b.textContent);
   });
   carsEl.appendChild(btn);
 });
 
-// 날짜 버튼 생성 (오늘 ~ +6일, 총 7일)
+// 날짜 버튼 생성 (오전 10시 이후면 내일부터, 총 7일)
 const nowRef = new Date();
+const startOffset = nowRef.getHours() >= 10 ? 1 : 0;
 const datesEl = document.getElementById('tdDates');
 
-for (let i = 0; i < 7; i++) {
+for (let i = startOffset; i < startOffset + 7; i++) {
   const d = new Date(nowRef);
   d.setDate(nowRef.getDate() + i);
   const dow = d.getDay();
@@ -493,7 +655,7 @@ for (let i = 0; i < 7; i++) {
   datesEl.appendChild(btn);
 }
 
-// 시간 버튼 생성 (오전 10시 ~ 오후 5시, 1시간 단위)
+// 시간 버튼 생성 (오전 10시 ~ 오후 5시 + 통화 후 결정)
 function buildTimes() {
   const timesEl = document.getElementById('tdTimes');
   timesEl.innerHTML = '';
@@ -522,33 +684,49 @@ function buildTimes() {
     }
     timesEl.appendChild(btn);
   }
+
+  // 통화 후 결정 버튼
+  const callBtn = document.createElement('button');
+  callBtn.className = 'td-time-btn call-btn';
+  callBtn.textContent = '📞 통화 후 결정';
+  callBtn.addEventListener('click', () => {
+    document.querySelectorAll('.td-time-btn').forEach(b => b.classList.remove('active'));
+    callBtn.classList.add('active');
+    tdHour = 'call';
+  });
+  timesEl.appendChild(callBtn);
 }
 buildTimes();
 
 // 예약하기 버튼 — SMS 앱 열기
 document.getElementById('tdReserveBtn').addEventListener('click', () => {
-  if (!tdCar)        { showToast('차종을 선택해주세요'); return; }
-  if (!tdDate)       { showToast('날짜를 선택해주세요'); return; }
-  if (tdHour === null) { showToast('시간을 선택해주세요'); return; }
+  const tdName = document.getElementById('tdName').value.trim();
+  if (tdCars.length === 0) { showToast('시승 희망 차종을 선택해주세요'); return; }
+  if (!tdDate)             { showToast('날짜를 선택해주세요'); return; }
+  if (tdHour === null)     { showToast('시간을 선택해주세요'); return; }
 
   const m  = tdDate.getMonth() + 1;
   const dd = tdDate.getDate();
   const dw = DAYS_KR[tdDate.getDay()];
-  const tl = tdHour < 12
-    ? `오전 ${tdHour}시`
-    : tdHour === 12 ? `오후 12시` : `오후 ${tdHour-12}시`;
+  const tl = tdHour === 'call'
+    ? '통화 후 결정'
+    : tdHour < 12
+      ? `오전 ${tdHour}시`
+      : tdHour === 12 ? `오후 12시` : `오후 ${tdHour-12}시`;
 
   const body =
     `[시승 예약]\n` +
-    `차종: ${tdCar}\n` +
-    `일시: ${m}l ${dd}l (${dw}) ${tl}\n` +
-    `전시장: 인む이어 모터스 대구 전시장\n` +
-    `닫당: ${PERSON.nameKr} ${PERSON.rank} (${PERSON.phoneMobile})`;
+    (tdName ? `고객: ${tdName}\n` : '') +
+    `차종: ${tdCars.join(', ')}\n` +
+    `일시: ${m}월 ${dd}일 (${dw}) ${tl}\n` +
+    `전시장: 인타이어 모터스 대구 전시장\n` +
+    `담당: ${PERSON.nameKr} ${PERSON.rank} (${PERSON.phoneMobile})`;
 
   location.href = `sms:${PERSON.phoneMobile}?body=${encodeURIComponent(body)}`;
 });
 
-// 통화 알림
+// 토스트 알림
+let toastTimer;
 function showToast(msg) {
   const t = document.getElementById('toast');
   t.textContent = msg;
