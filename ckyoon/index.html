@@ -49,11 +49,12 @@
   /* ── 명함 카드 ── */
   .card-block {
     margin: 24px 0 0;
-    background: #f0eeeb;
+    background: #f8f7f5;
     border-radius: 4px;
     padding: 24px 22px 22px;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.09), 0 1px 3px rgba(0,0,0,0.06);
   }
   .brand-logo {
     position: absolute; top: 20px; right: 22px;
@@ -69,20 +70,20 @@
   .card-info .detail-row { font-size:14px; color:#4a4a4a; line-height:1.55; letter-spacing:-0.01em; }
 
   /* ── 액션 버튼 ── */
-  .actions{ display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:16px; }
+  .actions{ display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:16px; }
   .actions a, .actions button{
-    display:flex; flex-direction:column; align-items:center; justify-content:center;
-    gap:4px; padding:16px 8px;
+    display:flex; flex-direction:row; align-items:center; justify-content:center;
+    gap:6px; padding:11px 8px;
     background:var(--paper-soft); border:1px solid var(--line); border-radius:var(--radius);
-    color:var(--ink); text-decoration:none; font-family:inherit; font-size:13px; font-weight:600;
+    color:var(--ink); text-decoration:none; font-family:inherit; font-size:12.5px; font-weight:600;
     cursor:pointer; -webkit-tap-highlight-color:transparent;
   }
-  .actions .full-row{ grid-column:1/-1; flex-direction:row; padding:15px; font-size:14px; letter-spacing:0.02em; }
-  .actions .icon{ font-size:18px; }
+  .actions .full-row{ grid-column:1/-1; padding:13px; font-size:14px; letter-spacing:0.02em; }
+  .actions .icon{ font-size:16px; flex-shrink:0; }
 
   /* ── 섹션 공통 ── */
   .section{ margin-top:36px; }
-  .section h2{ font-size:12px; font-weight:700; letter-spacing:0.12em; color:var(--ink); margin-bottom:12px; }
+  .section h2{ font-size:13.5px; font-weight:700; letter-spacing:0.10em; color:var(--ink); margin-bottom:12px; }
 
   /* ── 동영상 (가로/세로 유동) ── */
   .video-wrap {
@@ -121,7 +122,7 @@
 
   /* ── 위치 ── */
   .address-card{ background:var(--paper-soft); border:1px solid var(--line); border-radius:var(--radius); padding:16px; }
-  .address-card p{ font-size:15px; margin-bottom:12px; }
+  .address-card p{ font-size:15px; margin-bottom:12px; white-space:pre-line; }
   .map-row{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; }
   .map-row a{ display:flex; align-items:center; justify-content:center; padding:10px 4px; background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); font-size:12.5px; font-weight:600; color:var(--ink); text-decoration:none; }
   .copy-btn{ width:100%; margin-top:8px; padding:10px; font-size:12.5px; font-weight:600; background:transparent; border:1px solid var(--line); border-radius:var(--radius); color:var(--ink-soft); cursor:pointer; font-family:inherit; }
@@ -220,7 +221,7 @@ const PERSON = {
   rank: "팀장",
   branchKr: "대구 전시장",
   companyKr: "인타이어 모터스",
-  address: "랜드로버 대구전시장  대구광역시 서구 와룡로 314 (41845)",
+  address: "랜드로버 대구전시장\n대구광역시 서구 와룡로 314 (41845)",
   addressShort: "대구 서구 와룡로 314",
   phoneMain: "053-742-2500",
   phoneMobile: "010-6236-7744",
@@ -460,15 +461,15 @@ document.getElementById('btnShare').addEventListener('click', async () => {
   else { await navigator.clipboard.writeText(location.href); showToast('링크가 복사되었습니다'); }
 });
 
-// 지도 링크
-const q = encodeURIComponent(PERSON.address);
+// 지도 링크 (주소만 사용, 줄바꿈 이후 부분)
+const q = encodeURIComponent(PERSON.address.split('\n')[1] || PERSON.address);
 document.getElementById('mapTmap').href = `tmap://search?name=${q}`;
 document.getElementById('mapKakao').href = `https://m.map.kakao.com/scheme/search?q=${q}`;
 document.getElementById('mapNaver').href = `https://map.naver.com/p/search/${q}`;
 
 // 주소 복사
 document.getElementById('btnCopyAddr').addEventListener('click', async () => {
-  await navigator.clipboard.writeText(PERSON.address);
+  await navigator.clipboard.writeText(PERSON.address.split('\n')[1] || PERSON.address);
   showToast('주소가 복사되었습니다');
 });
 
