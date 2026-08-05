@@ -70,13 +70,9 @@
     box-shadow: 0 2px 12px rgba(0,0,0,0.09), 0 1px 3px rgba(0,0,0,0.06);
   }
   .brand-logo {
-    position: absolute; top: 20px; right: 22px;
-    text-align: right;
-    font-family: 'Space Grotesk', sans-serif;
-    display: flex; flex-direction: column; align-items: flex-end; gap: 0;
+    position: absolute; top: 18px; right: 18px;
   }
-  .brand-logo .brand-name { font-family:'JLREmeric', 'Space Grotesk', sans-serif; font-size:10px; font-weight:500; letter-spacing:0.22em; color:var(--ink); line-height:1.2; }
-  .brand-logo .brand-divider { width:26px; height:1px; background:var(--ink); margin:4px 0; opacity:0.5; }
+  .brand-logo img { width: 88px; display: block; }
   .card-info { margin-top: 60px; }
   .card-info .name-row { font-family:'Pretendard',sans-serif; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:var(--ink); line-height:1.3; margin-bottom:5px; }
   .card-info .name-row .name-en { font-family:'JLREmericSemiBold', 'JLREmeric', 'Space Grotesk', sans-serif; font-size:17px; font-weight:normal; color:var(--ink-soft); letter-spacing:0.04em; margin-left:6px; }
@@ -249,11 +245,7 @@ const PERSON = {
   <!-- 명함 카드 -->
   <div class="card-block">
     <div class="brand-logo">
-      <span class="brand-name">RANGE ROVER</span>
-      <div class="brand-divider"></div>
-      <span class="brand-name">DEFENDER</span>
-      <div class="brand-divider"></div>
-      <span class="brand-name">DISCOVERY</span>
+      <img src="brand_logo.png" alt="Range Rover · Defender · Discovery">
     </div>
     <div class="card-info">
       <div class="name-row">
