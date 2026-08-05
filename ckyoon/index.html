@@ -72,11 +72,12 @@
   .brand-logo {
     position: absolute; top: 18px; right: 18px;
   }
-  .brand-logo img { width: 88px; display: block; }
-  .card-info { margin-top: 60px; }
+  .brand-logo img { width: 108px; display: block; }
+  .card-info { margin-top: 64px; }
   .card-info .name-row { font-family:'Pretendard',sans-serif; font-size:17px; font-weight:700; letter-spacing:-0.01em; color:var(--ink); line-height:1.3; margin-bottom:5px; }
-  .card-info .name-row .name-en { font-family:'JLREmericSemiBold', 'JLREmeric', 'Space Grotesk', sans-serif; font-size:17px; font-weight:normal; color:var(--ink-soft); letter-spacing:0.04em; margin-left:6px; }
-  .card-info .detail-row { font-size:14px; color:#4a4a4a; line-height:1.4; letter-spacing:-0.01em; font-family:'JLREmericDigits','Pretendard',-apple-system,sans-serif; }
+  .card-info .name-row .name-sep { color:var(--ink); font-weight:400; margin:0 5px; }
+  .card-info .name-row .name-en { font-family:'JLREmericSemiBold', 'JLREmeric', 'Space Grotesk', sans-serif; font-size:17px; font-weight:normal; color:var(--ink); letter-spacing:0.04em; }
+  .card-info .detail-row { font-size:12.5px; color:#4a4a4a; line-height:1.4; letter-spacing:-0.01em; font-family:'JLREmericDigits','Pretendard',-apple-system,sans-serif; }
   #emailLine { font-family:'JLREmeric', 'Space Grotesk', sans-serif; }
 
   /* ── 액션 버튼 ── */
@@ -229,7 +230,7 @@ const PERSON = {
   titleKr: "영업사원",
   titleEn: "Sales Executive",
   rank: "팀장",
-  branchKr: "대구 전시장",
+  branchKr: "대구전시장",
   companyKr: "인타이어 모터스",
   address: "랜드로버 대구전시장\n대구광역시 서구 와룡로 314 (41845)",
   addressShort: "대구 서구 와룡로 314",
@@ -249,7 +250,7 @@ const PERSON = {
     </div>
     <div class="card-info">
       <div class="name-row">
-        윤철국 <span class="name-en">Yoon, Chulkuk</span>
+        윤철국 <span class="name-sep">|</span><span class="name-en">Yoon, Chulkuk</span>
       </div>
       <div class="detail-row">
         <span id="titleLine"></span><br>
@@ -448,7 +449,7 @@ const PERSON = {
 // 인물 정보
 document.getElementById('titleLine').textContent = `${PERSON.titleKr} | ${PERSON.titleEn} (${PERSON.rank})`;
 document.getElementById('branchLine').textContent = `${PERSON.branchKr} | ${PERSON.companyKr}`;
-document.getElementById('addressLine').textContent = PERSON.address.split('\n').pop();
+document.getElementById('addressLine').textContent = PERSON.address.split('\n').pop().replace('대구광역시', '대구시');
 document.getElementById('phoneLine').textContent = `${PERSON.phoneMain}  |  ${PERSON.phoneMobile}`;
 document.getElementById('emailLine').textContent = PERSON.email;
 document.getElementById('addrFull').textContent = PERSON.address;
