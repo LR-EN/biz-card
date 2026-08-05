@@ -494,6 +494,11 @@ vidEl.addEventListener('seeked', function onSeeked() {
   vidEl.removeEventListener('seeked', onSeeked);
 }, false);
 
+// 재생 종료 후 썸네일로 복귀
+vidEl.addEventListener('ended', () => {
+  vidEl.currentTime = 1;
+});
+
 // ── 바텀 시트 ──────────────────────────────────────
 const overlay = document.getElementById('sheetOverlay');
 
