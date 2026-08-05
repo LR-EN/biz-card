@@ -263,7 +263,7 @@ const PERSON = {
   <div class="section">
     <h2>영업사원 인사</h2>
     <div class="video-wrap">
-      <video src="ckyoon.mp4" controls playsinline preload="metadata">
+      <video src="ckyoon.mp4" controls playsinline preload="metadata" id="mainVideo">
         <p>동영상을 재생할 수 없습니다.</p>
       </video>
     </div>
@@ -466,19 +466,20 @@ document.getElementById('btnCopyAddr').addEventListener('click', async () => {
   showToast('주소가 복사되었습니다');
 });
 
-// ── 영상 비율 유동 처리 ──────────────────────────────
-const vidEl = document.querySelector('.video-wrap video');
+// ── 영상 비율 유동 처리 + 첫 프레임 썸네일 ──────────────
+const vidEl = document.getElementById('mainVideo');
 const vidWrap = document.querySelector('.video-wrap');
+
 vidEl.addEventListener('loadedmetadata', () => {
   const vw = vidEl.videoWidth, vh = vidEl.videoHeight;
   vidWrap.style.aspectRatio = `${vw} / ${vh}`;
   if (vh > vw) {
-    // 세로 영상
     vidWrap.style.maxWidth = `min(100%, calc(68vh * ${vw} / ${vh}))`;
   } else {
-    // 가로 영상
     vidWrap.style.maxWidth = '100%';
   }
+  // 첫 프레임으로 이동해서 썸네일 표시
+  vidEl.currentTime = 0.01;
 });
 
 // ── 바텀 시트 ──────────────────────────────────────
