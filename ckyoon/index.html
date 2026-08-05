@@ -89,12 +89,10 @@
     border-radius: var(--radius);
     overflow: hidden;
     background: #000;
-    aspect-ratio: 9 / 16;
-    max-width: min(100%, calc(65vh * 9 / 16));
+    width: 100%;
     margin: 0 auto;
-    transition: all 0.2s ease;
   }
-  .video-wrap video { width:100%; height:100%; display:block; object-fit:cover; }
+  .video-wrap video { width:100%; height:auto; display:block; object-fit:contain; }
 
   /* ── 시트 트리거 버튼 ── */
   .sheet-trigger {
@@ -115,8 +113,8 @@
     -webkit-tap-highlight-color: transparent;
   }
   .sheet-trigger-outline {
-    background: transparent;
-    border: 1.5px solid var(--ink);
+    background: var(--paper-soft);
+    border: 1px solid var(--line);
     color: var(--ink);
   }
   .trigger-icon { font-size: 18px; opacity: 0.5; }
@@ -222,7 +220,7 @@ const PERSON = {
   rank: "팀장",
   branchKr: "대구 전시장",
   companyKr: "인타이어 모터스",
-  address: "대구광역시 서구 와룡로 314 (41845)",
+  address: "랜드로버 대구전시장  대구광역시 서구 와룡로 314 (41845)",
   addressShort: "대구 서구 와룡로 314",
   phoneMain: "053-742-2500",
   phoneMobile: "010-6236-7744",
@@ -261,9 +259,9 @@ const PERSON = {
     <a href="#" class="full-row" id="btnCall">
       <span class="icon">📞</span><span id="btnCallLabel"></span>
     </a>
-    <a href="ckyoon.vcf" id="btnSave"><span class="icon">＋</span>연락처 저장</a>
+    <a href="ckyoon.vcf" id="btnSave"><span class="icon" style="font-size:22px;">＋</span>연락처 저장</a>
     <a href="#" id="btnSms"><span class="icon">💬</span>문자 보내기</a>
-    <a href="#" id="btnShowroom"><span class="icon">☎</span>전시장 전화</a>
+    <a href="#" id="btnShowroom"><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M1 22V9l11-7 11 7v13H1zm2-2h18V10.1L12 4.2 3 10.1V20zm7 0v-5h4v5h-4zm-4-5h2v-3H6v3zm8 0h2v-3h-2v3zm-4-4h2v-3h-2v3z"/></svg></span>전시장 전화</a>
     <button id="btnShare"><span class="icon">⬆</span>명함 공유</button>
   </div>
 
@@ -311,7 +309,7 @@ const PERSON = {
 
   <!-- ONE CARE -->
   <div class="section">
-    <h2>ONE CARE</h2>
+    <h2>모든 서비스를 하나에 담다 ONE CARE</h2>
     <div class="onecare-card">
       <div class="onecare-highlight">
         <div class="oc-badge">Land Rover One Care</div>
@@ -320,38 +318,38 @@ const PERSON = {
       <div class="onecare-features">
         <div class="onecare-feature">
           <div class="of-name">✦ 5년 보증</div>
-          <div class="of-desc">차량 결함 완전 보장</div>
+          <div class="of-desc">5년 또는 20만키로 보증</div>
         </div>
         <div class="onecare-feature">
           <div class="of-name">✦ 5년 서비스 플랜</div>
-          <div class="of-desc">정기 점검 무료 제공</div>
+          <div class="of-desc">주요 소모품 교환이나 차량상태 점검 서비스</div>
         </div>
         <div class="onecare-feature">
-          <div class="of-name">✦ 픽업 &amp; 딜리버리</div>
-          <div class="of-desc">문 앞까지 차량 픽업</div>
+          <div class="of-name">✦ 5년 픽업 &amp; 딜리버리</div>
+          <div class="of-desc">서비스센터 방문 없이 서비스를 원하는 장소에서</div>
         </div>
         <div class="onecare-feature">
-          <div class="of-name">✦ 24H 긴급 출동</div>
-          <div class="of-desc">언제든 즉시 출동</div>
+          <div class="of-name">✦ 5년 긴급출동</div>
+          <div class="of-desc">24시간 고객 센터를 통해 긴급출동 서비스</div>
         </div>
         <div class="onecare-feature">
-          <div class="of-name">✦ 자기부담금 지원</div>
-          <div class="of-desc">수리비 부담 최소화</div>
+          <div class="of-name">✦ 자기부담금 지원 프로그램</div>
+          <div class="of-desc">자기차량손해담보를 통해 수리비/ 자기부담금 납부 시 자기부담금 보상</div>
         </div>
         <div class="onecare-feature">
-          <div class="of-name">✦ 커넥티드 서비스</div>
-          <div class="of-desc">차량 원격 모니터링</div>
+          <div class="of-name">✦ 5년 커넥티드 서비스</div>
+          <div class="of-desc">차량 원격 모니터링, 원격 업데이트(SOTA)</div>
         </div>
         <div class="onecare-feature">
-          <div class="of-name">✦ 킵고잉</div>
-          <div class="of-desc">고장시 대차 즉시 제공</div>
+          <div class="of-name">✦ 5년 Keep going 서비스</div>
+          <div class="of-desc">고장으로 운행 불가 시 목적지까지 이동 비용 최대 30만원 지원</div>
         </div>
         <div class="onecare-feature">
-          <div class="of-name">✦ 사고차 무상견인</div>
-          <div class="of-desc">사고시 무료 견인</div>
+          <div class="of-name">✦ 5년 사고차 무상견인 서비스</div>
+          <div class="of-desc">사고 발생 시 공식서비스센터 무상 입고</div>
         </div>
       </div>
-      <div class="oc-section-label">ONE CARE 앱 다운로드</div>
+      <div class="oc-section-label" style="font-size:12px; color:var(--ink); letter-spacing:0.1em;">ONE CARE 앱 다운로드</div>
       <div class="onecare-apps">
         <a class="oc-app-btn" href="https://apps.apple.com/kr/app/land-rover-one-care/id1468234067" target="_blank" rel="noopener">iOS</a>
         <a class="oc-app-btn" href="https://play.google.com/store/apps/details?id=com.jlrkorea.owners" target="_blank" rel="noopener">Android</a>
@@ -367,7 +365,7 @@ const PERSON = {
         <a class="oc-contact-btn" href="tel:053-943-1000">
           <span class="oc-contact-icon">📞</span>
           <div class="oc-contact-info">
-            <span class="oc-contact-label">대구 서비스센터</span>
+            <span class="oc-contact-label">대구 서비스센터 (대구시 동구 화랑로 574)</span>
             <span class="oc-contact-num">053-943-1000</span>
           </div>
         </a>
@@ -479,13 +477,6 @@ const vidEl = document.getElementById('mainVideo');
 const vidWrap = document.querySelector('.video-wrap');
 
 vidEl.addEventListener('loadedmetadata', () => {
-  const vw = vidEl.videoWidth, vh = vidEl.videoHeight;
-  vidWrap.style.aspectRatio = `${vw} / ${vh}`;
-  if (vh > vw) {
-    vidWrap.style.maxWidth = `min(100%, calc(68vh * ${vw} / ${vh}))`;
-  } else {
-    vidWrap.style.maxWidth = '100%';
-  }
   // 첫 프레임 썸네일 (Chrome/Firefox)
   vidEl.currentTime = 1;
 });
